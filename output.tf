@@ -4,6 +4,6 @@ output "rds_endpoint" {
 }
 
 output "rds_security_group_id" {
-  value       = aws_db_instance.postgres-instance.endpoint
+  value       = aws_security_group.db_sg.id
   description = "RDS Instance Security Group ID"
 }
