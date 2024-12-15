@@ -1,5 +1,5 @@
 output "rds_endpoint" {
-  value       = aws_db_instance.postgres-instance.endpoint
+  value       = aws_db_instance.postgres-instance.address
   description = "RDS Instance Endpoint"
 }
 
