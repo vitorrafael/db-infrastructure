@@ -4,6 +4,12 @@ variable "projectName" {
   default     = "tech-challenge-lanchonete"
 }
 
+variable "databaseName" {
+  description = "Nome do Banco de Dados"
+  type        = string
+  default     = "lanchoneteDatabase"
+}
+
 variable "regionDefault" {
   description = "Região da AWS"
   type        = string
