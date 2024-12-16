@@ -11,7 +11,10 @@ resource "aws_db_instance" "postgres-instance" {
   vpc_security_group_ids = [aws_security_group.db_sg.id]
 
   #TODO - falta configurar
-  #db_subnet_group_name   = aws_db_subnet_group.default.id
+  # db_subnet_group_name   = aws_db_subnet_group.default.id
+
+  db_name             = var.databaseName
+  skip_final_snapshot = true
 
   # Configuração de backup
   maintenance_window      = "Tue:00:00-Tue:03:00"
