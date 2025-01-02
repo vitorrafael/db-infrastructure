@@ -1,10 +1,10 @@
 output "rds_endpoint" {
-  value       = aws_db_instance.postgres-instance.address
+  value       = aws_db_instance.postgres_instance.address
   description = "RDS Instance Endpoint"
 }
 
 output "rds_port" {
-  value = aws_db_instance.postgres-instance.port
+  value = aws_db_instance.postgres_instance.port
 }
 
 output "rds_security_group_id" {

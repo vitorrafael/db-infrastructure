@@ -1,7 +1,7 @@
 resource "aws_security_group" "db_sg" {
   name        = "SG-DB-instance-${var.projectName}"
   description = "Database Instance Security Group"
-  vpc_id      = data.aws_vpc.vpc.id # TODO - configurar
+  vpc_id      = data.aws_vpc.vpc.id
 
   ingress {
     description = "All"
