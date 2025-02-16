@@ -1,19 +1,16 @@
-resource "aws_db_instance" "postgres-instance" {
+resource "aws_db_instance" "rds" {
+  for_each               = var.databases
   allocated_storage      = 20
   engine                 = "postgres"
-  engine_version         = "14.9"
-  identifier             = "lanchonete-database" # Nome do banco de dados
+  engine_version         = "14.15"
+  identifier             = each.value.identifier # Nome do banco de dados
   instance_class         = "db.t3.medium"
-  username               = var.dbUsername       #TODO - mudar para o terraform.tfvars
-  password               = var.dbSecret         #TODO - mudar para o terraform.tfvars
-  parameter_group_name   = "default.postgres14" # Grupo de parâmetros padrão
-  publicly_accessible    = false                # Restringir acesso público
+  username               = each.value.username #var.dbUsername
+  password               = each.value.password #var.dbSecret
+  parameter_group_name   = "default.postgres14"
+  publicly_accessible    = false
   vpc_security_group_ids = [aws_security_group.db_sg.id]
 
-  #TODO - falta configurar
-  # db_subnet_group_name   = aws_db_subnet_group.default.id
-
-  db_name             = var.databaseName
   skip_final_snapshot = true
 
   # Configuração de backup
@@ -22,7 +19,7 @@ resource "aws_db_instance" "postgres-instance" {
   backup_retention_period = 30
 
   tags = {
-    Name = "PostgresDatabase"
+    Name = "Banco ${each.key}"
     Env  = "Production"
   }
 }
