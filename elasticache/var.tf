@@ -6,8 +6,8 @@ variable "aws-region" {
 
 variable "elasticache-cluster-id" {
   description = "ID do Elasticache"
-  type = string
-  default = "tcl-orders"
+  type        = string
+  default     = "tcl-orders"
 }
 
 variable "vpcCidr" {
