@@ -34,3 +34,17 @@ variable "dbSecret" {
   default     = "MTIzNDU2"
 }
 
+variable "databases" {
+  default = {
+    "microservico_a" = {
+      identifier = "customer-database"
+      username   = "postgres"
+      password   = "MTIzNDU2"
+    }
+    "microservico_b" = {
+      identifier = "order-database"
+      username    = "postgres"
+      password    = "MTIzNDU2"
+    }
+  }
+}
