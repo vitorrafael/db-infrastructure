@@ -4,6 +4,7 @@ resource "aws_db_instance" "rds" {
   engine                 = "postgres"
   engine_version         = "14.15"
   identifier             = each.value.identifier # Nome do banco de dados
+  db_name                = each.value.database_name
   instance_class         = "db.t3.medium"
   username               = each.value.username #var.dbUsername
   password               = each.value.password #var.dbSecret
